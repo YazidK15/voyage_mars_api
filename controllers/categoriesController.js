@@ -24,6 +24,16 @@ class categoriesController {
             result.json({ error: "Une erreur est survenue lors de la récupération de la catégorie par ID" });
         }
     }
+    async addCategories (request, result) {
+        try {
+            const categories = await categoriesService.addCategories(request.body);
+            result.json(categories);
+        } catch (error) {
+            result.status(500);
+            console.log(error);
+            result.json({ error: "Une erreur est survenue lors de l'ajout de la catégorie" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
