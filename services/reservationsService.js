@@ -7,6 +7,9 @@ class reservationsService {
     async getAllReservations() {
         return await reservations.findAll();
     }
+    async getReservationsByID(reservationsID) {
+        return await reservations.findByPk(reservationsID);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

@@ -7,6 +7,9 @@ class categoriesService {
     async getAllCategories() {
         return await categories.findAll();
     }
+    async getCategoriesByID(categoriesID) {
+        return await categories.findByPk(categoriesID);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

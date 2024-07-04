@@ -15,6 +15,16 @@ class destinationsController {
             result.json({ error: "Une erreur est survenue lors de la récupération des destinations"});
         }
     } 
+    
+    async getDestinationsByID (request, result) {
+        try {
+            const destinations = await destinationsService.getDestinationsByID(request.params.id);
+            result.json(destinations);
+        } catch (error) {
+            result.status(500);
+            result.json({ error: "Une erreur est survenue lors de la récupération du client par ID" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

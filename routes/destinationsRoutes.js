@@ -6,6 +6,7 @@ const router = express.Router();
 
 // Toutes les routes seront précédé par /categories
 router.get('/', (request, result) => {destinationsController.getAllDestinations(request, result)});
+router.get('/:id', (request, result) => {destinationsController.getDestinationsByID(request, result)});
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

@@ -7,6 +7,9 @@ class paiementsService {
     async getAllPaiements() {
         return await paiements.findAll();
     }
+    async getPaiementsByID(paiementsID) {
+        return await paiements.findByPk(paiementsID);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

@@ -7,6 +7,9 @@ class destinationsService {
     async getAllDestinations() {
         return await destinations.findAll();
     }
+    async getDestinationsByID(destinationsID) {
+        return await destinations.findByPk(destinationsID);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

@@ -15,6 +15,15 @@ class reservationsController {
             result.json({ error: "Une erreur est survenue lors de la récupération des reservations"});
         }
     } 
+    async getReservationsByID (request, result) {
+        try {
+            const reservations = await reservationsService.getReservationsByID(request.params.id);
+            result.json(reservations);
+        } catch (error) {
+            result.status(500);
+            result.json({ error: "Une erreur est survenue lors de la récupération du client par ID" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
