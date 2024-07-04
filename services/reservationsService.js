@@ -14,6 +14,11 @@ class reservationsService {
         // Équivalent du insert into () values ();
         return await reservations.create(reservation);
     }
+    async deleteReservations(id) {
+        // Équivalent du DELETE FROM reservations WHERE id = ?;
+        return await reservations.destroy({ where: { RE_ID:id } });
+    }
+    
 }
 
 // Exportation pour utilisation dans d'autres fichiers

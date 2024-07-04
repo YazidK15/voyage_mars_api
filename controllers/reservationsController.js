@@ -33,6 +33,20 @@ class reservationsController {
             result.json({ error: "Une erreur est survenue lors de l'ajout de la réservation" });
         }
     }
+    async deleteReservations(request, result) {
+        try {
+            const reservations = await reservationsService.deleteReservations(request.params.id);
+            if (reservations > 0) {
+                result.json({ message: "Réservation supprimée avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Réservation non trouvée" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la suppression de la réservation" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
