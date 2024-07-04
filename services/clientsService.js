@@ -15,6 +15,10 @@ class clientsService {
         // Équivalent du insert into () values ();
         return await clients.create(client);
     }
+    async deleteClients(id) {
+        // Équivalent du DELETE FROM clients WHERE id = ?;
+        return await clients.destroy({ where: { CL_ID:id } });
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

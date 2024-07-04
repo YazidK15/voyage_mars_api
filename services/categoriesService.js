@@ -14,6 +14,10 @@ class categoriesService {
         // Équivalent du insert into (ca_libelle) values ("test catégories");
         return await categories.create(categorie);
     }
+    async deleteCategories(id) {
+        // Équivalent du DELETE FROM categories WHERE id = ?;
+        return await categories.destroy({ where: { CA_ID:id } });
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

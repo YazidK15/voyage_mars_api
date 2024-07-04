@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', (request, result) => {clientsController.getAllClients(request, result)});
 router.get('/:id', (request, result) => {clientsController.getClientsByID(request, result)});
 router.post('/', (request, result) => {clientsController.addClients(request, result)});
+router.delete('/:id', (request, result) => { clientsController.deleteClients(request, result) });
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

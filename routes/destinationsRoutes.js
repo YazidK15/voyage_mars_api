@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', (request, result) => {destinationsController.getAllDestinations(request, result)});
 router.get('/:id', (request, result) => {destinationsController.getDestinationsByID(request, result)});
 router.post('/', (request, result) => {destinationsController.addDestinations(request, result)});
+router.delete('/:id', (request, result) => { destinationsController.deleteDestinations(request, result) });
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

@@ -14,6 +14,10 @@ class paiementsService {
         // Équivalent du insert into () values ();
         return await paiements.create(paiement);
     }
+    async deletePaiements(id) {
+        // Équivalent du DELETE FROM reservations WHERE id = ?;
+        return await paiements.destroy({ where: { PA_ID:id } });
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

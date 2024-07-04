@@ -31,6 +31,20 @@ class clientsController {
             result.json({ error: "Une erreur est survenue lors de l'ajout du client" });
         }
     }
+    async deleteClients(request, result) {
+        try {
+            const clients = await clientsService.deleteClients(request.params.id);
+            if (clients > 0) {
+                result.json({ message: "Client supprimé avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Client non trouvé" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la suppression du client" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

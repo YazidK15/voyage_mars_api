@@ -8,6 +8,7 @@ const router = express.Router();
 router.get('/', (request, result) => {categoriesController.getAllCategories(request, result)});
 router.get('/:id', (request, result) => {categoriesController.getCategoriesByID(request, result)});
 router.post('/', (request, result) => {categoriesController.addCategories(request, result)});
+router.delete('/:id', (request, result) => { categoriesController.deleteCategories(request, result) });
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

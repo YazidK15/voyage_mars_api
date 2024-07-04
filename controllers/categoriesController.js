@@ -34,6 +34,20 @@ class categoriesController {
             result.json({ error: "Une erreur est survenue lors de l'ajout de la catégorie" });
         }
     }
+    async deleteCategories(request, result) {
+        try {
+            const categories = await categoriesService.deleteCategories(request.params.id);
+            if (categories > 0) {
+                result.json({ message: "Catégories supprimée avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Catégories non trouvée" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la suppression de la catégories" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

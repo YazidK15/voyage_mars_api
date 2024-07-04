@@ -34,6 +34,20 @@ class destinationsController {
             result.json({ error: "Une erreur est survenue lors de l'ajout de la destination" });
         }
     }
+    async deleteDestinations(request, result) {
+        try {
+            const destinations = await destinationsService.deleteDestinations(request.params.id);
+            if (destinations > 0) {
+                result.json({ message: "Destination supprimée avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Destination non trouvée" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la suppression de la destination" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

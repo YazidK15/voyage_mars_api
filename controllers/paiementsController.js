@@ -33,6 +33,20 @@ class paiementsController {
             result.json({ error: "Une erreur est survenue lors de l'ajout du paiement" });
         }
     }
+    async deletePaiements(request, result) {
+        try {
+            const paiements = await paiementsService.deletePaiements(request.params.id);
+            if (paiements > 0) {
+                result.json({ message: "Paiement supprimé avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Paiement non trouvé" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la suppression du paiement" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
