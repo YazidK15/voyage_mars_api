@@ -10,6 +10,10 @@ class reservationsService {
     async getReservationsByID(reservationsID) {
         return await reservations.findByPk(reservationsID);
     }
+    async addReservations(reservation) {
+        // Équivalent du insert into () values ();
+        return await reservations.create(reservation);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

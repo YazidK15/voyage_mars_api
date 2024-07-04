@@ -7,6 +7,7 @@ const router = express.Router();
 // Toutes les routes seront précédé par /paiements
 router.get('/', (request, result) => {paiementsController.getAllPaiements(request, result)});
 router.get('/:id', (request, result) => {paiementsController.getPaiementsByID(request, result)});
+router.post('/', (request, result) => {paiementsController.addPaiements(request, result)});
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

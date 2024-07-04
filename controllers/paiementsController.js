@@ -24,6 +24,15 @@ class paiementsController {
             result.json({ error: "Une erreur est survenue lors de la récupération du client par ID" });
         }
     }
+    async addPaiements (request, result) {
+        try {
+            const paiements = await paiementsService.addPaiements(request.body);
+            result.json(paiements);
+        } catch (error) {
+            result.status(500);
+            result.json({ error: "Une erreur est survenue lors de l'ajout du paiement" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

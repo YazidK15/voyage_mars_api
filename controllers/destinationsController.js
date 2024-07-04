@@ -25,6 +25,15 @@ class destinationsController {
             result.json({ error: "Une erreur est survenue lors de la récupération du client par ID" });
         }
     }
+    async addDestinations (request, result) {
+        try {
+            const destinations = await destinationsService.addDestinations(request.body);
+            result.json(destinations);
+        } catch (error) {
+            result.status(500);
+            result.json({ error: "Une erreur est survenue lors de l'ajout de la destination" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

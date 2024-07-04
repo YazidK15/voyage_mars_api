@@ -24,6 +24,15 @@ class reservationsController {
             result.json({ error: "Une erreur est survenue lors de la récupération du client par ID" });
         }
     }
+    async addReservations (request, result) {
+        try {
+            const reservations = await reservationsService.addReservations(request.body);
+            result.json(reservations);
+        } catch (error) {
+            result.status(500);
+            result.json({ error: "Une erreur est survenue lors de l'ajout de la réservation" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

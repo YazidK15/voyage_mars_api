@@ -11,6 +11,10 @@ class clientsService {
     async getClientsByID(clientsID) {
         return await clients.findByPk(clientsID);
     }
+    async addClients(client) {
+        // Équivalent du insert into () values ();
+        return await clients.create(client);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

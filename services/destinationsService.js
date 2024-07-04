@@ -10,6 +10,10 @@ class destinationsService {
     async getDestinationsByID(destinationsID) {
         return await destinations.findByPk(destinationsID);
     }
+    async addDestinations(destination) {
+        // Équivalent du insert into () values ();
+        return await destinations.create(destination);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
