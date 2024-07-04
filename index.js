@@ -1,6 +1,9 @@
 const express = require('express');
 const clientsRoutes = require('./routes/clientsRoutes');
 const categoriesRoutes = require('./routes/categoriesRoutes');
+const destinationsRoutes = require('./routes/destinationsRoutes');
+const paiementsRoutes = require('./routes/paiementsRoutes');
+const reservationsRoutes = require('./routes/reservationsRoutes');
 const app = express();
 const port = 3001;
 
@@ -18,6 +21,9 @@ app.get('/hello', (request, result)=> {
 
 app.use('/clients', clientsRoutes);
 app.use('/categories', categoriesRoutes);
+app.use('/destinations', destinationsRoutes);
+app.use('/paiements', paiementsRoutes);
+app.use('/reservations', reservationsRoutes);
 
 // Premier paramètre le port sur lequel le serveur va écouter
 // Deuxieme paramètre une fonction flechée qui est faites au lancement du serveur

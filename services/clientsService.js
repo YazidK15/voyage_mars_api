@@ -7,6 +7,10 @@ class clientsService {
     async getAllClients() {
         return await clients.findAll();
     }
+
+    async getClientsByID(clientsID) {
+        return await clients.findByPk(clientsID);
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

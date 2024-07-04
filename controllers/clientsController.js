@@ -12,6 +12,16 @@ class clientsController {
             result.json({ error: "Une erreur est survenue lors de la récupération des clients"});
         }
     } 
+
+    async getClientsByID (request, result) {
+        try {
+            const clients = await clientsService.getClientsByID(request.params.id);
+            result.json(clients);
+        } catch (error) {
+            result.status(500);
+            result.json({ error: "Une erreur est survenue lors de la récupération du client par ID" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
