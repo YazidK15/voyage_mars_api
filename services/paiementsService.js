@@ -5,10 +5,11 @@ const paiements = require('../models/paiements');
 class paiementsService {
     // Fonction qui va chercher toutes les catégories dans la bdd 
     async getAllPaiements() {
-        return await paiements.findAll();
+        return await paiements.findAll({include: 'reservations'});
     }
     async getPaiementsByID(paiementsID) {
-        return await paiements.findByPk(paiementsID);
+        // Recherche par primary key donc on lui mets la primary key
+        return await paiements.findByPk(paiementsID, {include: 'reservations'});
     }
     async addPaiements(paiement) {
         // Équivalent du insert into () values ();

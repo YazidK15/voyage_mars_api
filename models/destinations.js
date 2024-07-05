@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/Sequelize');
+const categories = require('./categories');
 
 class destinations extends Model{
 
@@ -30,7 +31,11 @@ destinations.init({
     },
     CA_ID : {
         type : DataTypes.INTEGER,
-        allowNull : true
+        allowNull : true,
+        references : {
+            model : categories,
+            key : "CA_ID"
+        }
     }
 },{
     // On appel sequelize pour qu'il aille bien chercher la table dans la dbb voyage_mars
@@ -42,6 +47,11 @@ destinations.init({
     // On désactive les champs createdAt et updatedAt (auto générés par Sequelize)
     timestamps : false
 })
+
+// Permet d'afficher TOUTES les destinations dans catégories
+categories.hasMany(destinations, {as: 'destinations', foreignKey: 'CA_ID'});
+// Permet d'afficher LA SEULE categories dans destinations
+destinations.belongsTo(categories, {as: 'categories', foreignKey: 'CA_ID'});
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = destinations;

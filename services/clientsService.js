@@ -9,7 +9,7 @@ class clientsService {
     }
 
     async getClientsByID(clientsID) {
-        return await clients.findByPk(clientsID);
+        return await clients.findByPk(clientsID, {include: 'reservations'}); // l'include permet de venir chercher toutes les réservations liées au client
     }
     async addClients(client) {
         // Équivalent du insert into () values ();

@@ -5,10 +5,10 @@ const reservations = require('../models/reservations');
 class reservationsService {
     // Fonction qui va chercher toutes les catégories dans la bdd 
     async getAllReservations() {
-        return await reservations.findAll();
+        return await reservations.findAll({include: ['clients', 'destinations']}); // l'include permet d'ajouter les détails du client et la destination dans chaque réservations (sous forme de tableau car il y en a 2)
     }
     async getReservationsByID(reservationsID) {
-        return await reservations.findByPk(reservationsID);
+        return await reservations.findByPk(reservationsID, {include: ['clients','destinations','paiements']});
     }
     async addReservations(reservation) {
         // Équivalent du insert into () values ();
