@@ -9,6 +9,7 @@ router.get('/', (request, result) => {categoriesController.getAllCategories(requ
 router.get('/:id', (request, result) => {categoriesController.getCategoriesByID(request, result)});
 router.post('/', (request, result) => {categoriesController.addCategories(request, result)});
 router.delete('/:id', (request, result) => { categoriesController.deleteCategories(request, result) });
+router.patch('/:id', (request, result) => { categoriesController.updateCategories(request, result) });
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

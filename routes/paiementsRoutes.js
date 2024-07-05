@@ -9,6 +9,8 @@ router.get('/', (request, result) => {paiementsController.getAllPaiements(reques
 router.get('/:id', (request, result) => {paiementsController.getPaiementsByID(request, result)});
 router.post('/', (request, result) => {paiementsController.addPaiements(request, result)});
 router.delete('/:id', (request, result) => { paiementsController.deletePaiements(request, result) });
+router.patch('/:id', (request, result) => { paiementsController.updatePaiements(request, result) });
+
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

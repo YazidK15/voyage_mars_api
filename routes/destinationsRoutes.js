@@ -9,6 +9,7 @@ router.get('/', (request, result) => {destinationsController.getAllDestinations(
 router.get('/:id', (request, result) => {destinationsController.getDestinationsByID(request, result)});
 router.post('/', (request, result) => {destinationsController.addDestinations(request, result)});
 router.delete('/:id', (request, result) => { destinationsController.deleteDestinations(request, result) });
+router.patch('/:id', (request, result) => { destinationsController.updateDestinations(request, result) });
 
 // Exportation pour utilisation dans d'autres fichiers
 module.exports = router;

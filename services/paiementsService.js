@@ -18,6 +18,9 @@ class paiementsService {
         // Équivalent du DELETE FROM reservations WHERE id = ?;
         return await paiements.destroy({ where: { PA_ID:id } });
     }
+    async updatePaiements(id, paiement) {
+        return await paiements.update (paiement, { where: { PA_ID:id } });
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

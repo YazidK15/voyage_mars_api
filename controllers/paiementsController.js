@@ -47,6 +47,20 @@ class paiementsController {
             result.json({ error: "Une erreur est survenue lors de la suppression du paiement" });
         }
     }
+    async updatePaiements(request, result) {
+        try {
+            const paiements = await paiementsService.updatePaiements(request.params.id, request.body);
+            if (paiements > 0) {
+                result.json({ message: "Paiement modifié avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Paiement non trouvé" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la modification du paiement" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

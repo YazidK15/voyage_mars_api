@@ -48,6 +48,21 @@ class categoriesController {
             result.json({ error: "Une erreur est survenue lors de la suppression de la catégories" });
         }
     }
+    async updateCategories(request, result) {
+        try {
+            const categories = await categoriesService.updateCategories(request.params.id, request.body);
+            if (categories > 0) {
+                result.json({ message: "Catégories modifiée avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Catégories non trouvée" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la modification de la catégories" });
+        }
+    }
+    
 }
 
 // Exportation pour utilisation dans d'autres fichiers

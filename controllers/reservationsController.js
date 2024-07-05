@@ -47,6 +47,20 @@ class reservationsController {
             result.json({ error: "Une erreur est survenue lors de la suppression de la réservation" });
         }
     }
+    async updateReservations(request, result) {
+        try {
+            const reservations = await reservationsService.updateReservations(request.params.id, request.body);
+            if (reservations > 0) {
+                result.json({ message: "Réservation modifiée avec succès" });
+            } else {
+                result.status(404)
+                result.json({ error: "Réservation non trouvée" });
+            }
+        } catch (error) {
+            result.status(500)
+            result.json({ error: "Une erreur est survenue lors de la modification de la réservation" });
+        }
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers

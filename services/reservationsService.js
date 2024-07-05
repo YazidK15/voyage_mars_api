@@ -18,6 +18,9 @@ class reservationsService {
         // Équivalent du DELETE FROM reservations WHERE id = ?;
         return await reservations.destroy({ where: { RE_ID:id } });
     }
+    async updateReservations(id, reservation) {
+        return await reservations.update (reservation, { where: { RE_ID:id } });
+    }
     
 }
 

@@ -18,6 +18,10 @@ class categoriesService {
         // Équivalent du DELETE FROM categories WHERE id = ?;
         return await categories.destroy({ where: { CA_ID:id } });
     }
+    async updateCategories(id, categorie) {
+        return await categories.update (categorie, { where: { CA_ID:id } });
+    }
+
 }
 
 // Exportation pour utilisation dans d'autres fichiers

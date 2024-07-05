@@ -19,6 +19,9 @@ class clientsService {
         // Équivalent du DELETE FROM clients WHERE id = ?;
         return await clients.destroy({ where: { CL_ID:id } });
     }
+    async updateClients(id, client) {
+        return await clients.update (client, { where: { CL_ID:id } });
+    }
 }
 
 // Exportation pour utilisation dans d'autres fichiers
